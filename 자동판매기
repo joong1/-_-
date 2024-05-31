@@ -1,0 +1,157 @@
+#include <stdio.h>
+
+void coffee_price(int n);
+void cake_price(int n);
+int main(void)  {
+
+    int menu, coffee, cake;
+
+    printf("==========[MENU]==========\n");
+    printf("1. COFFEE\n");
+    printf("2. CAKE\n");
+    printf("0. 종료\n");
+    printf("==========================\n");
+
+    printf("메뉴를 선택하세요: ");
+    scanf("%d", &menu);
+    
+    while (1)
+    {
+        if (menu == 1)
+        {
+            printf("----------[COFFEE]----------\n");
+            printf(" 1) 아메리카노 (3,500원)\n");
+            printf(" 2) 카페라떼 (4,000원)\n");
+            printf(" 3) 카페모카 (4,500원)\n");
+            printf(" 0) 종료\n");
+            printf("----------------------------\n\n");
+            printf(" 메뉴를 선택하세요: ");
+            scanf("%d", &coffee);
+
+            coffee_price(coffee);
+            break;
+        }
+        else if(menu == 2)
+        {
+            printf("-----------[CAKE]-----------\n");
+            printf(" 1) 딸기생크림케이크 (6,000원)\n");
+            printf(" 2) 초코생크림케이크 (6,500원)\n");
+            printf(" 3) 치즈케이크  (5,500원)\n");
+            printf(" 0) 종료\n");
+            printf("----------------------------\n\n");
+            printf(" 메뉴를 선택하세요: ");
+            scanf("%d", &cake);
+
+            cake_price(cake);
+            break;
+        }
+        else if(menu==0)
+        {
+            printf("종료합니다.");
+            break;
+        }
+    }
+    return 0;
+}
+
+void coffee_price(int n)
+{
+	int m, g;
+	int ame = 3500, latte = 4000, moca = 4500;
+	
+	if(n == 0){
+		printf("종료\n");
+	} 
+	
+	while(n!=0)
+	{
+		printf("현금을 투입하세요:");
+		scanf("%d", &m);
+		
+		switch(n)
+		{
+			case 1:
+				g = m -ame;
+				break;
+			case 2:
+				g = m -latte;
+				break;
+			case 3:
+				g = m - moca;
+				break;
+			default:
+				printf("다시입력하세요");
+		}
+		
+		if(g>=0)
+		{
+			printf("맛있게 드십시오.\n잔돈: %d원\n",g);
+			printf("오천원: %d장\n", g / 5000);
+			g %= 5000;
+			printf("천  원: %d장\n", g / 1000);
+			g %= 1000;
+			printf("오백원: %d개\n", g / 500);
+			g %= 500;
+			printf("백  원: %d개\n", g / 100);
+			printf("\n");
+			break;
+		}
+		else{
+			g = -g;
+			printf("%d원이 부족합니다.\n", g);
+			continue;
+		} 
+		 
+	}
+}
+
+void cake_price(int n)
+{
+	int m, g;  //m=투입금액 , g=잔돈 
+	int berry = 5000, choco = 6500, cheese = 5500;
+	
+	if(n == 0){
+		printf("종료\n");
+	} 
+	
+	while(n!=0)
+	{
+		printf("현금을 투입하세요 : ");
+		scanf("%d", &m);
+		
+		switch(n)
+		{
+			case 1:
+				g = m -berry;
+				break;
+			case 2:
+				g = m -choco;
+				break;
+			case 3:
+				g = m - cheese;
+				break;
+			default:
+				printf("다시입력하세요");
+		}
+		
+		if(g>=0)
+		{
+			printf("맛있게 드십시오.\n잔돈: %d원\n",g);
+			printf("오천원: %d장\n", g / 5000);
+			g %= 5000;
+			printf("천  원: %d장\n", g / 1000);
+			g %= 1000;
+			printf("오백원: %d개\n", g / 500);
+			g %= 500;
+			printf("백  원: %d개\n", g / 100);
+			printf("\n");
+			break;
+		}
+		else{
+			g = -g;
+			printf("%d원이 부족합니다.\n", g);
+			continue;
+		} 
+		 
+	}
+}
