@@ -1,0 +1,58 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+typedef struct {
+    int reward;
+    int deadline;
+} Task;
+
+int compare(const void *a, const void *b) {
+    return ((Task *)b)->reward - ((Task *)a)->reward;
+}
+
+int scheduleTasks(Task tasks[], int n) {
+    qsort(tasks, n, sizeof(Task), compare);
+
+    int maxDeadline = 0;
+    for (int i = 0; i < n; i++) {
+        if (tasks[i].deadline > maxDeadline) {
+            maxDeadline = tasks[i].deadline;
+        }
+    }
+
+    int *schedule = (int *)calloc(maxDeadline + 1, sizeof(int));
+    int totalReward = 0;
+
+    for (int i = 0; i < n; i++) {
+        for (int t = tasks[i].deadline; t > 0; t--) {
+            if (schedule[t] == 0) {
+                schedule[t] = tasks[i].reward;
+                totalReward += tasks[i].reward;
+                break;
+            }
+        }
+    }
+
+    printf("Schedule: ");
+    for (int i = 1; i <= maxDeadline; i++) {
+        printf("%d ", schedule[i]);
+    }
+    printf("\nTotal Reward: %d\n", totalReward);
+
+    free(schedule);
+    return totalReward;
+}
+
+int main() {
+    Task tasks[] = {
+        {100, 2},
+        {27, 1},
+        {15, 2},
+        {10, 1},
+        {5, 3}
+    };
+    int n = sizeof(tasks) / sizeof(tasks[0]);
+
+    scheduleTasks(tasks, n);
+    return 0;
+}
