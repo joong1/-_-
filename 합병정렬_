@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-// 두 개의 서브 배열을 합병하는 함수
+// 두 개의 서브 배열을 합병하는 함수.
 void merge(int arr[], int left, int mid, int right) {
     int i, j, k;
     int n1 = mid - left + 1;
