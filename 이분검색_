@@ -5,7 +5,7 @@ int main(){
 	int s[14] = {2,3,4,5,7,9,10,14,15,18,23,27,30,31};
 	
 	int x, low, high, mid, location, count;
-	printf("찾고자 하는 값을 입력하시오.\n x = ");
+	printf("찾고자 하는 값을 입력하세용.\n x = ");
 	scanf("%d", &x);        
 	low = 0;
 	high = 13;
