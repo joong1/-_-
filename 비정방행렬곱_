@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-#define ROW1 2   // 첫 번째 행렬의 행 수
+#define ROW1 2   // 첫 번째 행렬의 행 수.
 #define COL1 3   // 첫 번째 행렬의 열 수
 #define ROW2 3   // 두 번째 행렬의 행 수
 #define COL2 2   // 두 번째 행렬의 열 수
