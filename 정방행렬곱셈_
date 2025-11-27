@@ -3,7 +3,7 @@
 #define ROW1 3   // 첫 번째 행렬의 행 수
 #define COL1 3   // 첫 번째 행렬의 열 수
 #define ROW2 3   // 두 번째 행렬의 행 수
-#define COL2 3   // 두 번째 행렬의 열 수
+#define COL2 3   // 두 번째 행렬의 열 수;
 
 // 행렬 곱셈 함수
 void matrix_multiply(int mat1[][COL1], int mat2[][COL2], int result[][COL2]) {
